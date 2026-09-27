@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#120b14">
+<title>For My Favorite Person ♡</title>
+<style>
+:root{
+  --bg:#100a12; --bg2:#1b0d19; --pink:#ff7eb6; --rose:#ff4f9a;
+  --cream:#fff5f8; --muted:#d7b9c8; --glass:rgba(255,255,255,.075);
+  --line:rgba(255,255,255,.12); --shadow:0 25px 80px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,100,170,.14),transparent 28%),
+    radial-gradient(circle at 85% 25%,rgba(174,83,255,.11),transparent 30%),
+    linear-gradient(145deg,var(--bg),#0c0910 60%,#170b16);
+  color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden;line-height:1.6
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.noise{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:50;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(920px,calc(100% - 28px));z-index:20;padding:10px 14px;border:1px solid var(--line);background:rgba(17,9,17,.58);backdrop-filter:blur(18px);border-radius:999px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 15px 45px rgba(0,0,0,.2)}
+.brand{font-weight:800;letter-spacing:.03em;color:#fff}
+.brand span{color:var(--pink)}
+.navlinks{display:flex;gap:5px}
+.navlinks a{padding:8px 13px;border-radius:999px;color:#d9c2ce;font-size:.88rem;transition:.25s}
+.navlinks a:hover{background:rgba(255,126,182,.12);color:white}
+@media(max-width:650px){.navlinks a:nth-child(-n+2){display:none}.nav{padding-left:16px}}
+
+.hero{min-height:100svh;display:grid;place-items:center;position:relative;padding:120px 20px 70px}
+.hero-inner{width:min(1120px,100%);display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}
+@media(max-width:850px){.hero-inner{grid-template-columns:1fr;gap:35px}.hero-copy{text-align:center}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(255,126,182,.25);background:rgba(255,126,182,.07);border-radius:999px;color:#ffb4d3;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(3.5rem,8vw,7.5rem);line-height:.9;letter-spacing:-.075em;margin:24px 0}
+.gradient{background:linear-gradient(110deg,#fff 10%,#ffc4dc 42%,#ff6eae 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p{max-width:590px;color:var(--muted);font-size:1.08rem}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);padding:13px 19px;border-radius:999px;cursor:pointer;transition:.25s;color:#fff;background:rgba(255,255,255,.055)}
+.btn.primary{background:linear-gradient(135deg,#ff4f9a,#ff79b5);border-color:transparent;box-shadow:0 10px 35px rgba(255,79,154,.25)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.hero-card{position:relative;aspect-ratio:4/5;border-radius:34px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);transform:rotate(2deg)}
+.hero-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.98)}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(12,7,13,.65));pointer-events:none}
+.polaroid{position:absolute;z-index:2;bottom:22px;left:22px;background:#fff;color:#23121b;padding:12px 16px 14px;transform:rotate(-4deg);box-shadow:0 15px 30px rgba(0,0,0,.3);font-family:cursive;font-size:1.05rem;border-radius:3px}
+
+.section{padding:110px 20px}
+.container{width:min(1120px,100%);margin:auto}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+.kicker{color:#ff82b7;font-weight:800;text-transform:uppercase;font-size:.78rem;letter-spacing:.13em}
+h2{font-size:clamp(2.2rem,5vw,4.4rem);letter-spacing:-.055em;line-height:1;margin-top:8px}
+.section-head p{max-width:450px;color:var(--muted)}
+@media(max-width:700px){.section-head{display:block}.section-head p{margin-top:18px}}
+
+.masonry{columns:3 260px;column-gap:18px}
+.masonry figure{break-inside:avoid;margin:0 0 18px;position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#160d15;box-shadow:0 15px 40px rgba(0,0,0,.2)}
+.masonry img{width:100%;display:block;transition:transform .6s}
+.masonry figure:hover img{transform:scale(1.035)}
+.caption{padding:14px 16px 16px;color:#ead5df;font-size:.9rem}
+.caption b{color:white;display:block;margin-bottom:2px}
+
+.story{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:800px){.story{grid-template-columns:1fr}}
+.story-card{padding:30px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));box-shadow:var(--shadow)}
+.story-card .icon{font-size:2rem;margin-bottom:14px}
+.story-card h3{font-size:1.35rem;margin-bottom:9px}
+.story-card p{color:var(--muted)}
+
+.letter-wrap{display:grid;place-items:center}
+.letter{width:min(800px,100%);padding:48px 44px;border:1px solid rgba(255,126,182,.24);border-radius:30px;background:linear-gradient(135deg,rgba(255,126,182,.09),rgba(255,255,255,.045));position:relative;box-shadow:var(--shadow)}
+.letter:before{content:"♡";position:absolute;right:25px;top:14px;font-size:4rem;color:rgba(255,126,182,.13)}
+.letter h3{font-family:Georgia,serif;font-size:2rem;margin-bottom:18px}
+.letter p{color:#efdce5;margin:11px 0}
+.signature{font-family:cursive;font-size:1.5rem;color:#ff9cc4;margin-top:20px}
+
+.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:800px){.reasons{grid-template-columns:1fr}}
+.reason{padding:24px;border:1px solid var(--line);border-radius:24px;background:var(--glass);transition:.3s}
+.reason:hover{transform:translateY(-5px);border-color:rgba(255,126,182,.35)}
+.reason .num{color:#ff78b4;font-weight:900;font-size:.78rem;letter-spacing:.12em}
+.reason h3{margin:10px 0 7px}
+.reason p{color:var(--muted);font-size:.95rem}
+
+.final{padding:130px 20px 150px;text-align:center}
+.final-box{width:min(880px,100%);margin:auto;padding:70px 25px;border-radius:36px;background:radial-gradient(circle at 50% 20%,rgba(255,126,182,.18),transparent 45%),rgba(255,255,255,.04);border:1px solid var(--line)}
+.final h2{font-size:clamp(2.8rem,7vw,6rem)}
+.final p{color:var(--muted);max-width:600px;margin:20px auto 30px}
+footer{text-align:center;padding:25px;color:#8e7180;font-size:.82rem;border-top:1px solid rgba(255,255,255,.07)}
+
+.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:10;animation:float 5s linear forwards;opacity:0;color:#ff72ad;text-shadow:0 0 15px rgba(255,114,173,.55)}
+@keyframes float{0%{transform:translateY(0) scale(.7) rotate(0);opacity:0}12%{opacity:.9}100%{transform:translateY(-110vh) scale(1.2) rotate(25deg);opacity:0}}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+#secret{display:none;margin-top:24px;padding:18px 20px;border-radius:18px;background:rgba(255,126,182,.09);color:#ffd3e5;border:1px solid rgba(255,126,182,.2)}
+#secret.show{display:block;animation:pop .5s ease}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<nav class="nav">
+  <a class="brand" href="#home">us<span>♡</span></a>
+  <div class="navlinks">
+    <a href="#moments">Moments</a>
+    <a href="#story">Us</a>
+    <a href="#letter">Letter</a>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">made with a little too much love ♡</span>
+      <h1>My favorite<br><span class="gradient">person.</span></h1>
+      <p>
+        For the girl with the sweetest smile, the biggest heart, the cutest cheeks,
+        and a kind of understanding and loyalty that makes ordinary moments feel like home.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#moments">Our little moments ↓</a>
+        <button class="btn" id="heartBtn">Click to get hearts from me 💕</button>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <img src="assets/moment-1.png" alt="A special moment together">
+      <div class="polaroid">you + me = my favorite story ♡</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="moments">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">the gallery</div>
+        <h2>Little moments.<br>Big feelings.</h2>
+      </div>
+      <p>Not every memory needs a grand occasion. Sometimes it's just a smile, a hand to hold, or falling asleep beside your favorite person.</p>
+    </div>
+    <div class="masonry">
+      <figure class="reveal">
+        <img src="assets/moment-2.png" alt="A happy moment together">
+        <figcaption class="caption"><b>The way you look at me</b>That smile still wins every time.</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/moment-3.png" alt="A cozy memory together">
+        <figcaption class="caption"><b>Comfort looks like this</b>Quiet, close, and completely us.</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/moment-4.png" alt="A sweet sleepy moment">
+        <figcaption class="caption"><b>My favorite kind of peaceful</b>Even sleepy moments become memories.</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/moment-5.png" alt="Holding hands">
+        <figcaption class="caption"><b>Hold my hand</b>Some things don't need words.</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/moment-6.jpeg" alt="A kiss">
+        <figcaption class="caption"><b>Just us</b>A tiny moment that says everything.</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="assets/moment-1.png" alt="Our illustrated memory">
+        <figcaption class="caption"><b>Our little universe</b>Even our memories deserve their own fairytale.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="story">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><div class="kicker">why you</div><h2>Things I adore<br>about you.</h2></div>
+      <p>It's more than how cute you are. It's the person you are when nobody is watching.</p>
+    </div>
+    <div class="reasons">
+      <article class="reason reveal"><div class="num">01 / YOUR HEART</div><h3>Soft, warm & genuine</h3><p>You have a way of making people feel understood. Your kindness is one of the things I never want to take for granted.</p></article>
+      <article class="reason reveal"><div class="num">02 / YOUR LOYALTY</div><h3>You stay.</h3><p>Your loyalty means more than any grand gesture. Knowing I can count on you is a feeling I treasure.</p></article>
+      <article class="reason reveal"><div class="num">03 / YOUR UNDERSTANDING</div><h3>You just get me.</h3><p>You understand the little things, the silences, the moods, and the messy parts. Somehow, you make them feel okay.</p></article>
+      <article class="reason reveal"><div class="num">04 / YOUR SMILE</div><h3>Instant mood changer</h3><p>One smile from you and suddenly the whole day feels a little lighter.</p></article>
+      <article class="reason reveal"><div class="num">05 / YOUR CUTENESS + SEXINESS</div><h3>Those Boobs OMG. Seriously. ♡</h3><p>There should probably be a legal limit on how adorable and sexy one person is allowed to be and I love those juicy boobs you have which i use to play with 😋.</p></article>
+      <article class="reason reveal"><div class="num">06 / MY FAVORITE</div><h3>You feel like home.</h3><p>That's the simplest way I know to say it: being with you feels safe, familiar, and special.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="letter">
+  <div class="container letter-wrap">
+    <div class="letter reveal">
+      <div class="kicker">a little letter</div>
+      <h3>To my favorite girl,</h3>
+      <p>I don't think I say it enough, but I notice the little things about you. The way you smile, the way you care, the way you understand me even when I don't know how to explain myself.</p>
+      <p>I love the silly moments, the quiet ones, the hand-holding, the smiles, the pictures, and all the tiny pieces of life that somehow become precious just because you're in them.</p>
+      <p>You're cute, you're wonderfully you, and your loyalty and understanding mean more to me than I can put into a website. So this little corner of the internet is just a reminder:</p>
+      <p><strong>you are deeply loved, ridiculously adorable, and very, very special to me. ♡</strong></p>
+      <div class="signature">always yours ♡</div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-box reveal">
+    <div class="kicker">one last thing</div>
+    <h2>I'd choose<br><span class="gradient">you.</span></h2>
+    <p>In the loud days, the quiet days, the silly days, and the days where nothing goes according to plan — I want more little moments with you.</p>
+    <button class="btn primary" id="secretBtn">there's a secret here ♡</button>
+    <div id="secret">Psst... if you're reading this, come here. You owe me a hug. 🫶🏻 And maybe a kiss too. ♡</div>
+  </div>
+</section>
+</main>
+
+<footer>made for one very special girl · with love, always ♡</footer>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+function makeHeart(){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.textContent=['♡','♥','💕','💗','💖'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(14+Math.random()*24)+'px';
+  h.style.animationDuration=(3.5+Math.random()*2.5)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6500);
+}
+setInterval(()=>{if(Math.random()<.7)makeHeart()},900);
+document.getElementById('heartBtn').addEventListener('click',()=>{
+  for(let i=0;i<12;i++) setTimeout(makeHeart,i*90);
+});
+document.getElementById('secretBtn').addEventListener('click',()=>{
+  document.getElementById('secret').classList.toggle('show');
+});
+</script>
+</body>
+</html>
